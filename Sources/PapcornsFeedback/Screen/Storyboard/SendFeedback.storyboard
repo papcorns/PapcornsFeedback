@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TYZ-ve-ZSe">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Papcorns Feedback View Controller-->
+        <scene sceneID="uDZ-vh-AYb">
+            <objects>
+                <viewController id="TYZ-ve-ZSe" customClass="PapcornsFeedbackViewController" customModule="PapcornsFeedback" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AIq-s3-qnm">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAV-J6-TBC">
+                                <rect key="frame" x="16" y="66" width="48" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="feedback_close_icon"/>
+                                <connections>
+                                    <action selector="close_Tapped:" destination="TYZ-ve-ZSe" eventType="touchUpInside" id="0FX-vU-BzX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKX-I8-OEA">
+                                <rect key="frame" x="135.66666666666666" y="74.666666666666686" width="119" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pSg-ef-KBo"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RKX-I8-OEA" firstAttribute="centerY" secondItem="XAV-J6-TBC" secondAttribute="centerY" id="27S-6F-QGt"/>
+                            <constraint firstItem="XAV-J6-TBC" firstAttribute="leading" secondItem="pSg-ef-KBo" secondAttribute="leading" constant="16" id="4kg-tS-P4E"/>
+                            <constraint firstItem="XAV-J6-TBC" firstAttribute="top" secondItem="pSg-ef-KBo" secondAttribute="top" constant="19" id="lMS-vX-zaV"/>
+                            <constraint firstItem="RKX-I8-OEA" firstAttribute="centerX" secondItem="AIq-s3-qnm" secondAttribute="centerX" id="lf3-sH-XiO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblTitle" destination="RKX-I8-OEA" id="0O9-tS-wOa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DVh-zU-1Zx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-698" y="9"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="feedback_close_icon" width="24" height="24"/>
+    </resources>
+</document>
