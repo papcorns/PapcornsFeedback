@@ -8,7 +8,7 @@ public struct PapcornsFeedback {
     var config: FeedbackConfig
     var destinationViewController: UIViewController
     
-    init(config: FeedbackConfig, destination:UIViewController) {
+    public init(config: FeedbackConfig, destination:UIViewController) {
         self.config = config
         self.destinationViewController = destination
     }

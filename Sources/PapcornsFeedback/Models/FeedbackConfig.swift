@@ -20,7 +20,7 @@ public struct FeedbackConfig  {
     var pageTitle: String?
     var feedbackTypes: [FeedbackModel]
     
-    init(cellBackgroundColor: UIColor? = nil,
+    public init(cellBackgroundColor: UIColor? = nil,
          pageBackgroundColor: UIColor? = nil,
          feedbackMailAddress: String,
          submitButtonDeactiveBackgroundColor: UIColor? = UIColor(hex: "#161825"),
