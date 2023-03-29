@@ -14,7 +14,7 @@ public struct PapcornsFeedback {
     }
     
     public func presentFeedback(){
-        let storyboard = UIStoryboard(name: "SendFeedback", bundle: nil)
+        let storyboard = UIStoryboard(name: "SendFeedback", bundle: Bundle.module)
         if let vc = storyboard.instantiateInitialViewController() as? PapcornsFeedbackViewController {
             vc.config = config
             destinationViewController.present(vc, animated: true)
