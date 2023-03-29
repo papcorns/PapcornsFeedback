@@ -11,7 +11,7 @@ import UIKit
 public struct FeedbackConfig  {
     
     var cellBackgroundColor: UIColor? = UIColor(hex: "#161825")
-    var cellTextFont: UIFont? = UIFont.systemFont(ofSize: 17)
+    var cellTextFont: UIFont? = nil
     var cellTextColor: UIColor? = .white
     var cellCornerRadius: Int? = 10
     
@@ -35,7 +35,7 @@ public struct FeedbackConfig  {
          pageTitle: String? = "Send Feedback",
          feedbackTypes: [FeedbackModel],
          cellTextColor: UIColor? = .white,
-         cellTextFont: UIFont? = UIFont.systemFont(ofSize: 17)) {
+         cellTextFont: UIFont? = nil) {
         
         self.cellBackgroundColor = cellBackgroundColor
         self.cellTextFont = cellTextFont
