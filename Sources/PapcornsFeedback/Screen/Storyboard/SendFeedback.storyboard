@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAV-J6-TBC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAV-J6-TBC">
                                 <rect key="frame" x="16" y="66" width="48" height="38"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="feedback_close_icon"/>
@@ -25,28 +25,53 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKX-I8-OEA">
-                                <rect key="frame" x="135.66666666666666" y="74.666666666666686" width="119" height="21"/>
+                                <rect key="frame" x="135.66666666666666" y="74.666666666666671" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EPH-tM-Owc">
+                                <rect key="frame" x="0.0" y="141" width="390" height="515"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvL-qn-0EG">
+                                <rect key="frame" x="16" y="716" width="358" height="64"/>
+                                <color key="backgroundColor" red="0.086274509803921567" green="0.094117647058823528" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="OQA-uP-AdH"/>
+                                </constraints>
+                                <color key="tintColor" red="0.31372549019607843" green="0.3411764705882353" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Submit">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="submit_Tapped:" destination="TYZ-ve-ZSe" eventType="touchUpInside" id="4cq-6s-4Q5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pSg-ef-KBo"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RKX-I8-OEA" firstAttribute="centerY" secondItem="XAV-J6-TBC" secondAttribute="centerY" id="27S-6F-QGt"/>
                             <constraint firstItem="XAV-J6-TBC" firstAttribute="leading" secondItem="pSg-ef-KBo" secondAttribute="leading" constant="16" id="4kg-tS-P4E"/>
+                            <constraint firstItem="pSg-ef-KBo" firstAttribute="bottom" secondItem="RvL-qn-0EG" secondAttribute="bottom" constant="30" id="61c-sj-IRT"/>
+                            <constraint firstItem="RvL-qn-0EG" firstAttribute="leading" secondItem="pSg-ef-KBo" secondAttribute="leading" constant="16" id="iWz-Gw-2Jj"/>
                             <constraint firstItem="XAV-J6-TBC" firstAttribute="top" secondItem="pSg-ef-KBo" secondAttribute="top" constant="19" id="lMS-vX-zaV"/>
                             <constraint firstItem="RKX-I8-OEA" firstAttribute="centerX" secondItem="AIq-s3-qnm" secondAttribute="centerX" id="lf3-sH-XiO"/>
+                            <constraint firstItem="pSg-ef-KBo" firstAttribute="trailing" secondItem="RvL-qn-0EG" secondAttribute="trailing" constant="16" id="qMI-2H-VtV"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnSubmit" destination="RvL-qn-0EG" id="ZEW-Od-6K1"/>
                         <outlet property="lblTitle" destination="RKX-I8-OEA" id="0O9-tS-wOa"/>
+                        <outlet property="tblList" destination="EPH-tM-Owc" id="Prv-oe-XXD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVh-zU-1Zx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-698" y="9"/>
+            <point key="canvasLocation" x="-698.46153846153845" y="8.5308056872037916"/>
         </scene>
     </scenes>
     <resources>

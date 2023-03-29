@@ -10,11 +10,8 @@ import UIKit
 
 public struct FeedbackModel {
     var title: String
-    var titleFont: UIFont?
-   
-    public init(title: String, titleFont: UIFont? = UIFont.systemFont(ofSize: 17)) {
+    
+    public init(title: String) {
         self.title = title
-        self.titleFont = titleFont
     }
-
 }
