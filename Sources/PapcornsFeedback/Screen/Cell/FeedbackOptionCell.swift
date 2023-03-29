@@ -39,7 +39,7 @@ class FeedbackOptionCell: UITableViewCell {
         containerView.backgroundColor = model.cellBackgroundColor
         lblTitle.textColor = model.cellTextColor
         lblTitle.text = model.feedbackTypes[row].title
-        containerView.layer.cornerRadius = CGFloat(model.cellCornerRadius ?? 10)
+        //containerView.layer.cornerRadius = CGFloat(model.cellCornerRadius ?? 10)
         if let font = model.cellTextFont {
             lblTitle.font = font
         }
