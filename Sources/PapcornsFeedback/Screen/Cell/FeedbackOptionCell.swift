@@ -35,7 +35,6 @@ class FeedbackOptionCell: UITableViewCell {
     }
     
     func prepareCell(with model: FeedbackConfig, row: Int) {
-        backgroundColor = .clear
         containerView.backgroundColor = model.cellBackgroundColor
         lblTitle.textColor = model.cellTextColor
         lblTitle.text = model.feedbackTypes[row].title
