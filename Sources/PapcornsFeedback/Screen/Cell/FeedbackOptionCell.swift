@@ -19,9 +19,9 @@ class FeedbackOptionCell: UITableViewCell {
         }
         set{
             if newValue {
-                imgSelection.image = UIImage(named: "feedback_selected_icon")!
+                imgSelection.image = UIImage(named: "feedback_selected_icon", in: Bundle.module, with: nil)
             }else {
-                imgSelection.image = UIImage(named: "feedback_unselected_icon")!
+                imgSelection.image = UIImage(named: "feedback_unselected_icon", in: Bundle.module, with: nil)
             }
         }
     }
