@@ -10,20 +10,20 @@ import UIKit
 
 public struct FeedbackConfig  {
     
-    var cellBackgroundColor: UIColor? = UIColor(hex: "#161825")
-    var cellTextFont: UIFont? = nil
-    var cellTextColor: UIColor? = .white
-    var cellCornerRadius: Int? = 10
-    
-    var pageBackgroundColor: UIColor? = .black
-    var feedbackMailAddress: String
-    var submitButtonDeactiveBackgroundColor: UIColor?
-    var submitButtonActiveBackgroundColor: UIColor?
-    var submitButtonDeactiveTextColor: UIColor?
-    var submitButtonActiveTextColor: UIColor?
-    var pageTitle: String?
-    
-    var feedbackTypes: [FeedbackModel]
+    public var cellBackgroundColor: UIColor? = UIColor(hex: "#161825")
+    public var cellTextFont: UIFont? = nil
+    public var cellTextColor: UIColor? = .white
+    public var cellCornerRadius: Int? = 10
+  
+    public var pageBackgroundColor: UIColor? = .black
+    public var feedbackMailAddress: String
+    public var submitButtonDeactiveBackgroundColor: UIColor?
+    public var submitButtonActiveBackgroundColor: UIColor?
+    public var submitButtonDeactiveTextColor: UIColor?
+    public var submitButtonActiveTextColor: UIColor?
+    public var pageTitle: String?
+ 
+    public var feedbackTypes: [FeedbackModel]
     
     public init(cellBackgroundColor: UIColor? = UIColor(hex: "#161825"),
                 pageBackgroundColor: UIColor? = .black,

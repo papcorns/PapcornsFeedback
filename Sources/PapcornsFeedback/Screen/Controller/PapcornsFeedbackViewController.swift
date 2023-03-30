@@ -23,6 +23,7 @@ class PapcornsFeedbackViewController: UIViewController {
     }
 
     func setupUI(){
+        self.view.backgroundColor = config.pageBackgroundColor
         lblTitle.text = config.pageTitle
         btnClose.setTitle("", for: .normal)
         tblList.delegate = self
