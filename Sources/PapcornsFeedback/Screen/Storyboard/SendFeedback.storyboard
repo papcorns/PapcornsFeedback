@@ -64,6 +64,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnClose" destination="XAV-J6-TBC" id="f4u-5A-2UG"/>
                         <outlet property="btnSubmit" destination="RvL-qn-0EG" id="ZEW-Od-6K1"/>
                         <outlet property="lblTitle" destination="RKX-I8-OEA" id="0O9-tS-wOa"/>
                         <outlet property="tblList" destination="EPH-tM-Owc" id="Prv-oe-XXD"/>

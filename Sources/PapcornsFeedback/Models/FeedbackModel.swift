@@ -15,3 +15,8 @@ public struct FeedbackModel {
         self.title = title
     }
 }
+
+enum FeedbackSectionType: Int, CaseIterable {
+    case options = 0
+    case comment
+}
