@@ -9,14 +9,17 @@ import UIKit
 
 class CommentTableViewCell: UITableViewCell, UITextViewDelegate{
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var commentTextView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         commentTextView.text = "Tell us about the problem"
         commentTextView.textColor = UIColor(hex: "#8F92A0")
         commentTextView.returnKeyType = .done
         commentTextView.delegate = self
+        containerView.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
