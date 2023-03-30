@@ -13,18 +13,18 @@ class FeedbackOptionCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var containerView: UIView!
     
-    override var isSelected: Bool{
-        get {
-            super.isSelected
-        }
-        set{
-            if newValue {
-                imgSelection.image = UIImage(named: "feedback_selected_icon")!
-            }else {
-                imgSelection.image = UIImage(named: "feedback_unselected_icon")!
-            }
-        }
-    }
+//    override var isSelected: Bool{
+//        get {
+//            super.isSelected
+//        }
+//        set{
+//            if newValue {
+//                imgSelection.image = UIImage(named: "feedback_selected_icon")!
+//            }else {
+//                imgSelection.image = UIImage(named: "feedback_unselected_icon")!
+//            }
+//        }
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
