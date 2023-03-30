@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol CommentCellDelegate {
+    func updateComment(with text: String)
+}
+
 class CommentTableViewCell: UITableViewCell, UITextViewDelegate{
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var commentTextView: UITextView!
+    
+    var delegate: CommentCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -15,6 +15,7 @@ class PapcornsFeedbackViewController: UIViewController {
     @IBOutlet weak var tblList: UITableView!
     
     var selectedFeedback: FeedbackModel?
+    var comment: String?
     var config: FeedbackConfig!
     
     override func viewDidLoad() {
@@ -25,18 +26,32 @@ class PapcornsFeedbackViewController: UIViewController {
     func setupUI(){
         self.view.backgroundColor = config.pageBackgroundColor
         lblTitle.text = config.pageTitle
+        btnSubmit.backgroundColor = config.submitButtonDeactiveBackgroundColor
+        btnSubmit.tintColor = config.submitButtonDeactiveTextColor
         btnClose.setTitle("", for: .normal)
+        
         tblList.delegate = self
         tblList.dataSource = self
         tblList.separatorStyle = .none
+        
         if #available(iOS 15.0, *) {
             tblList.sectionHeaderTopPadding = 0
         }
+        
         tblList.register(UINib(nibName: "FeedbackOptionCell", bundle: Bundle.module), forCellReuseIdentifier: "FeedbackOptionCell")
         tblList.register(UINib(nibName: "CommentTableViewCell", bundle: Bundle.module), forCellReuseIdentifier: "CommentTableViewCell")
-        
     }
     
+    
+    func setButtonActive() {
+        btnSubmit.backgroundColor = config.submitButtonActiveBackgroundColor
+        btnSubmit.tintColor = config.submitButtonActiveTextColor
+    }
+    
+    func setButtonDeactive() {
+        btnSubmit.backgroundColor = config.submitButtonDeactiveBackgroundColor
+        btnSubmit.tintColor = config.submitButtonDeactiveTextColor
+    }
     
     //MARK: Actions
     
@@ -82,7 +97,7 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
             }
         }else if indexPath.section == FeedbackSectionType.comment.rawValue {
             if let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for:indexPath) as? CommentTableViewCell {
-                
+                commentCell.delegate = self
                 return commentCell
             }
         }
@@ -102,6 +117,7 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == FeedbackSectionType.options.rawValue {
             self.selectedFeedback = config.feedbackTypes[indexPath.row]
+            tableView.cellForRow(at: indexPath)?.isSelected = true
         }
     }
     
@@ -111,5 +127,17 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
+    }
+}
+
+
+extension PapcornsFeedbackViewController : CommentCellDelegate {
+    func updateComment(with text: String) {
+        self.comment = text
+        if text != "" {
+            self.setButtonActive()
+        }else {
+            self.setButtonDeactive()
+        }
     }
 }
