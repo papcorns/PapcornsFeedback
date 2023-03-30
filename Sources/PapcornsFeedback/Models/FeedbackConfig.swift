@@ -25,8 +25,8 @@ public struct FeedbackConfig  {
     
     var feedbackTypes: [FeedbackModel]
     
-    public init(cellBackgroundColor: UIColor? = nil,
-         pageBackgroundColor: UIColor? = nil,
+    public init(cellBackgroundColor: UIColor? = UIColor(hex: "#161825"),
+                pageBackgroundColor: UIColor? = .black,
          feedbackMailAddress: String,
          submitButtonDeactiveBackgroundColor: UIColor? = UIColor(hex: "#161825"),
          submitButtonActiveBackgroundColor: UIColor? = .blue,

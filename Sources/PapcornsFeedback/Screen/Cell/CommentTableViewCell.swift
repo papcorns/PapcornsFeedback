@@ -41,4 +41,12 @@ class CommentTableViewCell: UITableViewCell, UITextViewDelegate{
         }
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+         if text == "\n" {
+             textView.resignFirstResponder()
+         }
+         return true
+     }
+    
+    
 }

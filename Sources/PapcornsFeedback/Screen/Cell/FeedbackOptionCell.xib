@@ -43,6 +43,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="bek-zO-fY0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="5wv-Qh-dpi"/>
                     <constraint firstItem="bek-zO-fY0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="IWe-wj-2FE"/>
@@ -51,6 +52,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="containerView" destination="bek-zO-fY0" id="QGM-YL-Thf"/>
                 <outlet property="imgSelection" destination="XLc-ax-DxS" id="VVL-F3-t20"/>

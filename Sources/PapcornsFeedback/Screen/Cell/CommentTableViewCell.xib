@@ -38,6 +38,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="JEQ-KK-fZb" secondAttribute="bottom" constant="2" id="7tR-r8-KLb"/>
                     <constraint firstItem="JEQ-KK-fZb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="TBx-Ua-MhH"/>
@@ -46,6 +47,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="commentTextView" destination="UX3-tK-Nex" id="YGB-Gq-uR8"/>
                 <outlet property="containerView" destination="JEQ-KK-fZb" id="bKg-2H-3Gc"/>
