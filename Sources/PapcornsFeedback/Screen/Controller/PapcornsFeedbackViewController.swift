@@ -33,6 +33,8 @@ class PapcornsFeedbackViewController: UIViewController {
         tblList.delegate = self
         tblList.dataSource = self
         tblList.separatorStyle = .none
+        tblList.allowsMultipleSelection = false
+        tblList.allowsSelection = true
         
         if #available(iOS 15.0, *) {
             tblList.sectionHeaderTopPadding = 0
@@ -40,8 +42,33 @@ class PapcornsFeedbackViewController: UIViewController {
         
         tblList.register(UINib(nibName: "FeedbackOptionCell", bundle: Bundle.module), forCellReuseIdentifier: "FeedbackOptionCell")
         tblList.register(UINib(nibName: "CommentTableViewCell", bundle: Bundle.module), forCellReuseIdentifier: "CommentTableViewCell")
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(sender:)))
+        tapGesture.cancelsTouchesInView = false
+        tapGesture.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapGesture)
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardSize.height
+            self.view.frame.origin.y = 0 - keyboardHeight
+            UIView.animate(withDuration: 0.15) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    @objc func viewTapped(sender: Any) {
+        self.view.endEditing(true)
+    }
     
     func setButtonActive() {
         btnSubmit.backgroundColor = config.submitButtonActiveBackgroundColor
@@ -117,6 +144,7 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == FeedbackSectionType.options.rawValue {
             self.selectedFeedback = config.feedbackTypes[indexPath.row]
+            tableView.indexPathForSelectedRow
             tableView.cellForRow(at: indexPath)?.isSelected = true
         }
     }
