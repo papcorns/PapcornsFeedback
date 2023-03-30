@@ -27,6 +27,10 @@ class PapcornsFeedbackViewController: UIViewController {
         btnClose.setTitle("", for: .normal)
         tblList.delegate = self
         tblList.dataSource = self
+        tblList.separatorStyle = .none
+        if #available(iOS 15.0, *) {
+            tblList.sectionHeaderTopPadding = 0
+        }
         tblList.register(UINib(nibName: "FeedbackOptionCell", bundle: Bundle.module), forCellReuseIdentifier: "FeedbackOptionCell")
         tblList.register(UINib(nibName: "CommentTableViewCell", bundle: Bundle.module), forCellReuseIdentifier: "CommentTableViewCell")
         
