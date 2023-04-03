@@ -22,6 +22,7 @@ public struct FeedbackConfig  {
     public var submitButtonDeactiveTextColor: UIColor?
     public var submitButtonActiveTextColor: UIColor?
     public var pageTitle: String?
+    public var mailInfo: String? // device id , name , firebase id
  
     public var feedbackTypes: [FeedbackModel]
     
@@ -35,7 +36,8 @@ public struct FeedbackConfig  {
          pageTitle: String? = "Send Feedback",
          feedbackTypes: [FeedbackModel],
          cellTextColor: UIColor? = .white,
-         cellTextFont: UIFont? = nil) {
+         cellTextFont: UIFont? = nil,
+         mailInfo:String? = nil) {
         
         self.cellBackgroundColor = cellBackgroundColor
         self.cellTextFont = cellTextFont
@@ -48,6 +50,7 @@ public struct FeedbackConfig  {
         self.submitButtonActiveTextColor = submitButtonActiveTextColor
         self.pageTitle = pageTitle
         self.feedbackTypes = feedbackTypes
+        self.mailInfo = mailInfo
     }
     
     

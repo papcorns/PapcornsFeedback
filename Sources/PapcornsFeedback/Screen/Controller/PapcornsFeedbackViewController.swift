@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class PapcornsFeedbackViewController: UIViewController {
 
@@ -28,6 +29,8 @@ class PapcornsFeedbackViewController: UIViewController {
         lblTitle.text = config.pageTitle
         btnSubmit.backgroundColor = config.submitButtonDeactiveBackgroundColor
         btnSubmit.tintColor = config.submitButtonDeactiveTextColor
+        btnSubmit.layer.cornerRadius = CGFloat(config.cellCornerRadius ?? 12)
+        
         btnClose.setTitle("", for: .normal)
         
         tblList.delegate = self
@@ -75,9 +78,27 @@ class PapcornsFeedbackViewController: UIViewController {
         btnSubmit.tintColor = config.submitButtonActiveTextColor
     }
     
-    func setButtonDeactive() {
+    func setButtonDeactive(){
         btnSubmit.backgroundColor = config.submitButtonDeactiveBackgroundColor
         btnSubmit.tintColor = config.submitButtonDeactiveTextColor
+    }
+    
+    func showAlertWith(title:String) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(action)
+        self.present(alert, animated: true)
+    }
+    
+    func sendMail(){
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([config.feedbackMailAddress])
+            
+            mail.setMessageBody("Issue: \(selectedFeedback?.title ?? "Bug")\nFeedback: \(String(describing: comment) )\n\n", isHTML: false)
+            present(mail, animated: true)
+        }
     }
     
     //MARK: Actions
@@ -88,13 +109,15 @@ class PapcornsFeedbackViewController: UIViewController {
     
     @IBAction func submit_Tapped(_ sender: Any) {
         guard self.selectedFeedback != nil else {
-            let alert = UIAlertController(title: "Please select subject", message: "", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default)
-            alert.addAction(action)
-            self.present(alert, animated: true)
+            showAlertWith(title: "Please select subject")
             return
         }
         
+        guard self.comment != nil else {
+            showAlertWith(title: "Please write comment")
+            return
+        }
+        sendMail()
     }
 }
 
@@ -144,7 +167,7 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == FeedbackSectionType.options.rawValue {
             self.selectedFeedback = config.feedbackTypes[indexPath.row]
-            tableView.indexPathForSelectedRow
+            //FIXME: unselect cell
             tableView.cellForRow(at: indexPath)?.isSelected = true
         }
     }
@@ -167,5 +190,12 @@ extension PapcornsFeedbackViewController : CommentCellDelegate {
         }else {
             self.setButtonDeactive()
         }
+    }
+}
+
+
+extension PapcornsFeedbackViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        self.dismiss(animated: true)
     }
 }

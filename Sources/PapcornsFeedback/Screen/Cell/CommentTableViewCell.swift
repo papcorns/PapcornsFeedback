@@ -51,7 +51,7 @@ class CommentTableViewCell: UITableViewCell, UITextViewDelegate{
          if text == "\n" {
              textView.resignFirstResponder()
          }
-        self.delegate?.updateComment(with: text)
+        self.delegate?.updateComment(with: textView.text)
          return true
      }
     
