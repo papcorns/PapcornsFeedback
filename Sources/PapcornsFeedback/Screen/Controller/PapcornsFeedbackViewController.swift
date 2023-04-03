@@ -96,7 +96,7 @@ class PapcornsFeedbackViewController: UIViewController {
             mail.mailComposeDelegate = self
             mail.setToRecipients([config.feedbackMailAddress])
             
-            mail.setMessageBody("Issue: \(selectedFeedback?.title ?? "Bug")\nFeedback: \(String(describing: comment) )\n\n", isHTML: false)
+            mail.setMessageBody("Issue: \(selectedFeedback?.title ?? "Bug")\nFeedback: \(comment)\n\n", isHTML: false)
             present(mail, animated: true)
         }
     }
@@ -196,6 +196,8 @@ extension PapcornsFeedbackViewController : CommentCellDelegate {
 
 extension PapcornsFeedbackViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        self.dismiss(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: DispatchWorkItem(block: {
+            self.dismiss(animated: true)
+        }))
     }
 }
