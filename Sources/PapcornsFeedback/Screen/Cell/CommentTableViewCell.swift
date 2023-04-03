@@ -43,15 +43,18 @@ class CommentTableViewCell: UITableViewCell, UITextViewDelegate{
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
             commentTextView.text = "Tell us about the problem"
-            commentTextView.textColor = UIColor(hex: "#8F92A0")
+            commentTextView.textColor = UIColor(red: 143/255, green: 146/255, blue: 160/255, alpha: 1.0)
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        self.delegate?.updateComment(with: textView.text)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
          if text == "\n" {
              textView.resignFirstResponder()
          }
-        self.delegate?.updateComment(with: textView.text)
          return true
      }
     

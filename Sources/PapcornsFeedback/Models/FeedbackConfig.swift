@@ -26,13 +26,13 @@ public struct FeedbackConfig  {
  
     public var feedbackTypes: [FeedbackModel]
     
-    public init(cellBackgroundColor: UIColor? = UIColor(hex: "#161825"),
-                pageBackgroundColor: UIColor? = UIColor(hex: "#07080D"),
+    public init(cellBackgroundColor: UIColor? =  UIColor(red: 22/255, green: 25/255, blue: 37/255, alpha: 1.0),
+                pageBackgroundColor: UIColor? = .black,
          feedbackMailAddress: String,
-         submitButtonDeactiveBackgroundColor: UIColor? = UIColor(hex: "#161825"),
+         submitButtonDeactiveBackgroundColor: UIColor? = UIColor(red: 22/255, green: 25/255, blue: 37/255, alpha: 1.0),
          submitButtonActiveBackgroundColor: UIColor? = .blue,
-         submitButtonDeactiveTextColor: UIColor? = UIColor(hex: "#505770"),
-         submitButtonActiveTextColor: UIColor? = UIColor(hex: "#07080D"),
+         submitButtonDeactiveTextColor: UIColor? = UIColor(red: 80/255, green: 87/255, blue: 112/255, alpha: 1.0),
+         submitButtonActiveTextColor: UIColor? = .white,
          pageTitle: String? = "Send Feedback",
          feedbackTypes: [FeedbackModel],
          cellTextColor: UIColor? = .white,
