@@ -167,7 +167,10 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == FeedbackSectionType.options.rawValue {
             self.selectedFeedback = config.feedbackTypes[indexPath.row]
-            //FIXME: unselect cell
+            
+            if let selected = tableView.indexPathForSelectedRow {
+                tableView.cellForRow(at: selected)?.isSelected = false
+            } 
             tableView.cellForRow(at: indexPath)?.isSelected = true
         }
     }
