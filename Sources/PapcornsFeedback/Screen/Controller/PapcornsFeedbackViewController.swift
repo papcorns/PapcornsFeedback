@@ -96,7 +96,7 @@ class PapcornsFeedbackViewController: UIViewController {
             mail.mailComposeDelegate = self
             mail.setToRecipients([config.feedbackMailAddress])
             
-            mail.setMessageBody("Issue: \(selectedFeedback?.title ?? "Bug")\nFeedback: \(comment)\n\n", isHTML: false)
+            mail.setMessageBody("Issue: \(selectedFeedback?.title ?? "Bug")\nFeedback: \(comment!)\n\n \(config?.mailInfo ?? "")", isHTML: false)
             present(mail, animated: true)
         }
     }
@@ -175,7 +175,7 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
-        let label = UILabel(frame: CGRect(x: 32, y: 0, width: 40, height: 150))
+        let label = UILabel(frame: CGRect(x: 32, y: 0, width: 150, height: 40))
         if section == 0 {
             label.text = "Select a subject"
         }else {
