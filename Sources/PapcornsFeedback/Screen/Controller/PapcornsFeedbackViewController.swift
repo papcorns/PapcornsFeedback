@@ -209,7 +209,8 @@ extension PapcornsFeedbackViewController : CommentCellDelegate {
 
 extension PapcornsFeedbackViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: DispatchWorkItem(block: {
+        controller.dismiss(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.12, execute: DispatchWorkItem(block: {
             self.dismiss(animated: true)
         }))
     }
