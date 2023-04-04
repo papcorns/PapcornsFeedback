@@ -15,6 +15,7 @@ class PapcornsFeedbackViewController: UIViewController {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tblList: UITableView!
     
+    var selectedCell : UITableViewCell?
     var selectedFeedback: FeedbackModel?
     var comment: String?
     var config: FeedbackConfig!
@@ -168,9 +169,10 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
         if indexPath.section == FeedbackSectionType.options.rawValue {
             self.selectedFeedback = config.feedbackTypes[indexPath.row]
             
-            if let selected = tableView.indexPathForSelectedRow {
-                tableView.cellForRow(at: selected)?.isSelected = false
-            } 
+            if let cell = self.selectedCell {
+                cell.isSelected = false
+            }
+            self.selectedCell = tableView.cellForRow(at: indexPath)
             tableView.cellForRow(at: indexPath)?.isSelected = true
         }
     }
@@ -179,7 +181,7 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
         let label = UILabel(frame: CGRect(x: 32, y: 0, width: 150, height: 40))
-        if section == 0 {
+        if section == FeedbackSectionType.options.rawValue {
             label.text = "Select a subject"
         }else {
             label.text = "Comment"
