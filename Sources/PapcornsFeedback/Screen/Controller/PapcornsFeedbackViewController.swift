@@ -173,7 +173,20 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView()
+        
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
+        let label = UILabel(frame: CGRect(x: 32, y: 0, width: 40, height: 150))
+        if section == 0 {
+            label.text = "Select a subject"
+        }else {
+            label.text = "Comment"
+        }        
+        label.textColor = UIColor(red: 143/255, green: 146/255, blue: 160/255, alpha: 1.0)
+        if let font = config.headerLabelFont {
+            label.font = font
+        }
+        headerView.addSubview(label)
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

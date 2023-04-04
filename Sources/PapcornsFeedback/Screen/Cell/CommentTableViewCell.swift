@@ -22,7 +22,7 @@ class CommentTableViewCell: UITableViewCell, UITextViewDelegate{
         super.awakeFromNib()
         selectionStyle = .none
         commentTextView.text = "Tell us about the problem"
-        commentTextView.textColor = UIColor(hex: "#8F92A0")
+        commentTextView.textColor = UIColor(red: 143/255, green: 146/255, blue: 160/255, alpha: 1.0)
         commentTextView.returnKeyType = .done
         commentTextView.delegate = self
         containerView.layer.cornerRadius = 10
