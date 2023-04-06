@@ -21,6 +21,9 @@ public struct FeedbackConfig  {
     public var submitButtonActiveBackgroundColor: UIColor?
     public var submitButtonDeactiveTextColor: UIColor?
     public var submitButtonActiveTextColor: UIColor?
+    public var submitButtonFont: UIFont?
+    public var titleFont: UIFont?
+    
     public var pageTitle: String?
     public var headerLabelFont: UIFont?
     public var mailInfo: String? // device id , name , firebase id
