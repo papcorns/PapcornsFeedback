@@ -31,9 +31,7 @@ class PapcornsFeedbackViewController: UIViewController {
         btnSubmit.backgroundColor = config.submitButtonDeactiveBackgroundColor
         btnSubmit.tintColor = config.submitButtonDeactiveTextColor
         btnSubmit.layer.cornerRadius = CGFloat(config.cellCornerRadius ?? 12)
-        
         btnClose.setTitle("", for: .normal)
-        
         tblList.delegate = self
         tblList.dataSource = self
         tblList.separatorStyle = .none
