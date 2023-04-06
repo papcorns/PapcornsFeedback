@@ -29,7 +29,7 @@ class PapcornsFeedbackViewController: UIViewController {
         self.view.backgroundColor = config.pageBackgroundColor
         lblTitle.text = config.pageTitle
         btnSubmit.backgroundColor = config.submitButtonDeactiveBackgroundColor
-        btnSubmit.tintColor = config.submitButtonDeactiveTextColor
+        btnSubmit.setTitleColor(config.submitButtonDeactiveTextColor, for: .normal)
         btnSubmit.layer.cornerRadius = CGFloat(config.cellCornerRadius ?? 12)
         btnSubmit.titleLabel?.font = config.submitButtonFont
         lblTitle.font = config.titleFont
@@ -76,12 +76,12 @@ class PapcornsFeedbackViewController: UIViewController {
     
     func setButtonActive() {
         btnSubmit.backgroundColor = config.submitButtonActiveBackgroundColor
-        btnSubmit.tintColor = config.submitButtonActiveTextColor
+        btnSubmit.setTitleColor(config.submitButtonActiveTextColor, for: .normal)
     }
     
     func setButtonDeactive(){
         btnSubmit.backgroundColor = config.submitButtonDeactiveBackgroundColor
-        btnSubmit.tintColor = config.submitButtonDeactiveTextColor
+        btnSubmit.setTitleColor(config.submitButtonDeactiveTextColor, for: .normal)
     }
     
     func showAlertWith(title:String) {
