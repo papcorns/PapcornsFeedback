@@ -31,12 +31,8 @@ class PapcornsFeedbackViewController: UIViewController {
         btnSubmit.backgroundColor = config.submitButtonDeactiveBackgroundColor
         btnSubmit.tintColor = config.submitButtonDeactiveTextColor
         btnSubmit.layer.cornerRadius = CGFloat(config.cellCornerRadius ?? 12)
-        if let font = config.submitButtonFont {
-            btnSubmit.titleLabel?.font = font
-        }
-        if let titleFont = config.titleFont {
-            lblTitle.font = titleFont
-        }
+        btnSubmit.titleLabel?.font = config.submitButtonFont
+        lblTitle.font = config.titleFont
         btnClose.setTitle("", for: .normal)
         tblList.delegate = self
         tblList.dataSource = self
@@ -191,7 +187,7 @@ extension PapcornsFeedbackViewController : UITableViewDelegate, UITableViewDataS
         }else {
             label.text = "Comment"
         }        
-        label.textColor = UIColor(red: 143/255, green: 146/255, blue: 160/255, alpha: 1.0)
+        label.textColor = config.headerTitleColor ??  UIColor(red: 143/255, green: 146/255, blue: 160/255, alpha: 1.0)
         if let font = config.headerLabelFont {
             label.font = font
         }
