@@ -44,6 +44,7 @@ class PapcornsFeedbackViewController: UIViewController {
         tblList.separatorStyle = .none
         tblList.allowsMultipleSelection = false
         tblList.allowsSelection = true
+        tblList.keyboardDismissMode = .onDrag
         
         if #available(iOS 15.0, *) {
             tblList.sectionHeaderTopPadding = 0
@@ -55,10 +56,10 @@ class PapcornsFeedbackViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardDidHideNotification, object: nil)
        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(sender:)))
-        tapGesture.cancelsTouchesInView = false
-        tapGesture.numberOfTapsRequired = 1
-        self.view.addGestureRecognizer(tapGesture)
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(sender:)))
+//        tapGesture.cancelsTouchesInView = false
+//        tapGesture.numberOfTapsRequired = 1
+//        self.view.addGestureRecognizer(tapGesture)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
