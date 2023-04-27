@@ -98,7 +98,7 @@ class PapcornsFeedbackViewController: UIViewController {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients([config.feedbackMailAddress])
-            mail.setSubject(config.subject ?? "")
+            //mail.setSubject(config.subject ?? "")
             mail.setMessageBody("Issue: \(selectedFeedback?.title ?? "Bug")\nFeedback: \(comment!)\n\n \(config?.mailInfo ?? "")", isHTML: false)
             present(mail, animated: true)
         }

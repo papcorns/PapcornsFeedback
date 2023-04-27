@@ -44,8 +44,8 @@ public struct FeedbackConfig  {
                 cellTextColor: UIColor? = .white,
                 cellTextFont: UIFont? = nil,
                 headerLabelFont:UIFont? = nil,
-                mailInfo:String? = nil,
-                subject:String? = nil) {
+                mailInfo:String? = nil/*,
+                subject:String? = nil*/) {
         
         self.cellBackgroundColor = cellBackgroundColor
         self.cellTextFont = cellTextFont
