@@ -82,6 +82,7 @@ class PapcornsFeedbackViewController: UIViewController {
     
     @objc func viewTapped(sender: Any) {
         self.view.endEditing(true)
+        resignFirstResponder()
     }
     
     func setButtonActive() {
