@@ -19,6 +19,7 @@ class PapcornsFeedbackViewController: UIViewController {
     var selectedFeedback: FeedbackModel?
     var comment: String?
     var config: FeedbackConfig!
+    var isKeyboardShow: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +78,9 @@ class PapcornsFeedbackViewController: UIViewController {
     }
     
     @objc func viewTapped(sender: Any) {
-        self.view.endEditing(true)
+        if isKeyboardShow {
+            self.view.endEditing(true)
+        }
     }
     
     func setButtonActive() {
