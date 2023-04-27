@@ -28,8 +28,8 @@ class PapcornsFeedbackViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardDidHideNotification, object: nil)
        
     }
     func setupUI(){
@@ -72,6 +72,7 @@ class PapcornsFeedbackViewController: UIViewController {
         }
     }
 
+    keyboardWillDissapper
     @objc func keyboardWillHide(notification: NSNotification) {
         tblList.isUserInteractionEnabled = true
         print("WillHideRun")
