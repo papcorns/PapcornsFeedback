@@ -26,7 +26,7 @@ public struct FeedbackConfig  {
     public var headerTitleColor: UIColor?
     public var headerLabelFont: UIFont?
     public var pageTitle: String?
-    public var subject: String?
+   // public var subject: String?
     
     public var mailInfo: String? // device id , name , firebase id
  
