@@ -80,9 +80,7 @@ class PapcornsFeedbackViewController: UIViewController {
     }
     
     @objc func viewTapped(sender: Any) {
-        if isKeyboardShow {
-            self.view.endEditing(true)
-        }
+        self.view.endEditing(true)
     }
     
     func setButtonActive() {
