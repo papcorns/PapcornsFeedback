@@ -48,29 +48,29 @@ class PapcornsFeedbackViewController: UIViewController {
         tblList.register(UINib(nibName: "CommentTableViewCell", bundle: Bundle.module), forCellReuseIdentifier: "CommentTableViewCell")
         
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(sender:)))
         tapGesture.cancelsTouchesInView = false
         tapGesture.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGesture)
     }
     
-//    @objc func keyboardWillShow(notification: NSNotification) {
-//        tblList.isUserInteractionEnabled = false
-//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//            let keyboardHeight = keyboardSize.height
-//            self.view.frame.origin.y = 0 - keyboardHeight
-//            UIView.animate(withDuration: 0.15) {
-//                self.view.layoutIfNeeded()
-//            }
-//        }
-//    }
-//
-//    @objc func keyboardWillHide(notification: NSNotification) {
-//        tblList.isUserInteractionEnabled = true
-//        self.view.frame.origin.y = 0
-//    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        tblList.isUserInteractionEnabled = false
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardSize.height
+            self.tblList.frame.origin.y = 0 - keyboardHeight
+            UIView.animate(withDuration: 0.15) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        tblList.isUserInteractionEnabled = true
+        self.tblList.frame.origin.y = 0
+    }
     
     @objc func viewTapped(sender: Any) {
         self.view.endEditing(true)
