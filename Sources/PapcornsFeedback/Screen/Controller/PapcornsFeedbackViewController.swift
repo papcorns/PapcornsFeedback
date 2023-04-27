@@ -25,6 +25,12 @@ class PapcornsFeedbackViewController: UIViewController {
         setupUI()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+       
+    }
     func setupUI(){
         self.view.backgroundColor = config.pageBackgroundColor
         lblTitle.text = config.pageTitle
@@ -47,9 +53,6 @@ class PapcornsFeedbackViewController: UIViewController {
         tblList.register(UINib(nibName: "FeedbackOptionCell", bundle: Bundle.module), forCellReuseIdentifier: "FeedbackOptionCell")
         tblList.register(UINib(nibName: "CommentTableViewCell", bundle: Bundle.module), forCellReuseIdentifier: "CommentTableViewCell")
         
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(sender:)))
         tapGesture.cancelsTouchesInView = false
         tapGesture.numberOfTapsRequired = 1
