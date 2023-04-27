@@ -53,8 +53,8 @@ class PapcornsFeedbackViewController: UIViewController {
         tblList.register(UINib(nibName: "FeedbackOptionCell", bundle: Bundle.module), forCellReuseIdentifier: "FeedbackOptionCell")
         tblList.register(UINib(nibName: "CommentTableViewCell", bundle: Bundle.module), forCellReuseIdentifier: "CommentTableViewCell")
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardDidHideNotification, object: nil)
        
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(sender:)))
 //        tapGesture.cancelsTouchesInView = false
@@ -63,7 +63,6 @@ class PapcornsFeedbackViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        tblList.isUserInteractionEnabled = false
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             print("Keyboard size " + "\(keyboardSize.height)")
             let keyboardHeight = keyboardSize.height
@@ -76,7 +75,6 @@ class PapcornsFeedbackViewController: UIViewController {
 
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        tblList.isUserInteractionEnabled = true
         print("WillHideRun")
         self.view.frame.origin.y = 0
     }
