@@ -26,6 +26,7 @@ public struct FeedbackConfig  {
     public var headerTitleColor: UIColor?
     public var headerLabelFont: UIFont?
     public var pageTitle: String?
+    public var subject: String?
     
     public var mailInfo: String? // device id , name , firebase id
  
@@ -43,7 +44,8 @@ public struct FeedbackConfig  {
                 cellTextColor: UIColor? = .white,
                 cellTextFont: UIFont? = nil,
                 headerLabelFont:UIFont? = nil,
-                mailInfo:String? = nil) {
+                mailInfo:String? = nil,
+                subject:String? = nil) {
         
         self.cellBackgroundColor = cellBackgroundColor
         self.cellTextFont = cellTextFont
