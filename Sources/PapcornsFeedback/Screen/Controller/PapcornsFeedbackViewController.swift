@@ -65,7 +65,7 @@ class PapcornsFeedbackViewController: UIViewController {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             print("Keyboard size " + "\(keyboardSize.height)")
             let keyboardHeight = keyboardSize.height
-            self.tblList.frame.origin.y = 0 - keyboardHeight
+            self.view.frame.origin.y = 0 - keyboardHeight
             UIView.animate(withDuration: 0.15) {
                 self.view.layoutIfNeeded()
             }
@@ -74,7 +74,8 @@ class PapcornsFeedbackViewController: UIViewController {
 
     @objc func keyboardWillHide(notification: NSNotification) {
         tblList.isUserInteractionEnabled = true
-        self.tblList.frame.origin.y = 0
+        print("WillHideRun")
+        self.view.frame.origin.y = 0
     }
     
     @objc func viewTapped(sender: Any) {
