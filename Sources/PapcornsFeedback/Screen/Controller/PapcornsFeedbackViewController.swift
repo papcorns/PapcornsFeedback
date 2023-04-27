@@ -54,7 +54,7 @@ class PapcornsFeedbackViewController: UIViewController {
         tblList.register(UINib(nibName: "CommentTableViewCell", bundle: Bundle.module), forCellReuseIdentifier: "CommentTableViewCell")
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardDidHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
        
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(sender:)))
 //        tapGesture.cancelsTouchesInView = false
@@ -67,7 +67,7 @@ class PapcornsFeedbackViewController: UIViewController {
             print("Keyboard size " + "\(keyboardSize.height)")
             let keyboardHeight = keyboardSize.height
             self.view.frame.origin.y = 0 - keyboardHeight
-            UIView.animate(withDuration: 0.15) {
+            UIView.animate(withDuration: 0.05) {
                 self.view.layoutIfNeeded()
             }
         }
