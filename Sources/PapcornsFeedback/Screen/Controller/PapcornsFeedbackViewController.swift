@@ -72,7 +72,7 @@ class PapcornsFeedbackViewController: UIViewController {
         }
     }
 
-    keyboardWillDissapper
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         tblList.isUserInteractionEnabled = true
         print("WillHideRun")
