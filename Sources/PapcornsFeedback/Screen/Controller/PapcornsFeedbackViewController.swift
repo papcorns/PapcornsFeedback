@@ -23,7 +23,6 @@ class PapcornsFeedbackViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.resignFirstResponder()
         setupUI()
     }
 
@@ -64,6 +63,7 @@ class PapcornsFeedbackViewController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         tblList.isUserInteractionEnabled = false
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            print("Keyboard size " + "\(keyboardSize.height)")
             let keyboardHeight = keyboardSize.height
             self.tblList.frame.origin.y = 0 - keyboardHeight
             UIView.animate(withDuration: 0.15) {
